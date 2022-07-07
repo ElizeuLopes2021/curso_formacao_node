@@ -1,4 +1,6 @@
 const express = require("express");
+const Article = require("./articles/Article");
+const Category = require("./categories/Category");
 const connection = require("./database/database");
 const app = express();
 
