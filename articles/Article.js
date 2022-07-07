@@ -1,5 +1,5 @@
-let connection,
-  { Sequelize } = require("../database/database");
+const connection = require("../database/database");
+const Sequelize = require("sequelize");
 
 const Article = connection.define("articles", {
   title: {
