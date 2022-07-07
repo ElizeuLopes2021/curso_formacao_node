@@ -1,8 +1,9 @@
 const express = require("express");
+const app = express();
+const connection = require("./database/database");
 const Article = require("./articles/Article");
 const Category = require("./categories/Category");
-const connection = require("./database/database");
-const app = express();
+const CategoriesControllers = require("./categories/CategoriesControllers");
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -15,6 +16,7 @@ connection
   .then(() => console.log("Conexão feita com sucesso!"))
   .catch((error) => console.log(error));
 
+app.use("/", CategoriesControllers);
 app.get("/", (req, res) => {
   res.render("index");
 });
