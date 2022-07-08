@@ -21,8 +21,20 @@
         <td><%= category.title %></td>
         <td><%= category.slug %></td>
         <td>
-          <form class="d-flex justify-content-around">
-            <button class="btn btn-warning">Editar</button>
+          <button class="btn btn-warning">Editar</button>
+          <form
+            onsubmit="confirmarDelecao(event,this)"
+            style="display: inline"
+            action="/categories/delete"
+            method="post"
+          >
+            <input
+              style="padding: 0; margin: 0"
+              class="form-control"
+              type="hidden"
+              name="id"
+              value="<%= category.id %>"
+            />
             <button class="btn btn-danger">Deletar</button>
           </form>
         </td>
@@ -33,3 +45,11 @@
 </div>
 
 <%- include('../../partials/footer') %>
+
+<script>
+  function confirmarDelecao(event, form) {
+    event.preventDefault();
+    var desision = confirm("Você quer mesmo deletar essa categoria?");
+    desision ? form.submit() : "";
+  }
+</script>
