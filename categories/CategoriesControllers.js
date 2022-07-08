@@ -30,4 +30,13 @@ router.post("/categories/save", (req, res) => {
   }
 });
 
+router.get("/admin/categories", (req, res) => {
+  //buscando todas as categorias no banco de dados.
+  Category.findAll().then((categories) => {
+    res.render("admin/categories", {
+      categories: categories,
+    });
+  });
+});
+
 module.exports = router;
