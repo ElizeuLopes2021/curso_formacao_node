@@ -21,7 +21,7 @@
         <td><%= category.title %></td>
         <td><%= category.slug %></td>
         <td>
-          <button class="btn btn-warning">Editar</button>
+          <a href="/admin/categories/edit/<%= category.id %> " class="btn btn-warning">Editar</a href="/admin/categories/edit/<%= category.id %> ">
           <form
             onsubmit="confirmarDelecao(event,this)"
             style="display: inline"
